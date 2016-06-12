@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
 	<head>
 	 	<meta charset="utf-8">
 	 	<title>To Do List | Python Practice No. 3</title>
@@ -80,13 +82,12 @@
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="/static/js/vendor/video.js"></script>
 	<script src="/static/js/flat-ui.min.js"></script>
-
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 
 
 	<script type="text/javascript">
-
-
-
+		
+					
 
 			function addTodoItem() {
 
@@ -99,17 +100,41 @@
 			                         " class='custom-checkbox todo-item-done' data-toggle='checkbox' id='checkbox'"+ 
 			                         " value='" + todoItem + "' /> <span class='icons' style='font-size: 23px'><span class='icon-unchecked'></span><span class='icon-checked'></span></span><span class='todo-text'> " +
 			                         "</span><button class='btn btn-xs btn-danger todo-item-delete'>"+
-			                         "<span class='fui-cross'></span></button><img src='/static/space.png'>"+ 
+			                         "<span class='fui-cross'></span></button><img src='/static/space.png'> <span class='fullname'>"+ 
 			                         todoItem +
-			                         " <hr /></label>");
+			                         "</span> <hr /></label>");
 			 
+
 			 $("#new-todo-item").val("");
+
+
+				$('.fullname').click(function(){
+				    var name = $(this).text();
+				    $(this).html('');
+				    $('<input></input>')
+				        .attr({
+				            'type': 'text',
+				            'name': 'fname',
+				            'id': 'txt_fullname',
+				            'size': '30',
+				            'value': name
+				        })
+				        .appendTo('#fullname');
+				    $('#txt_fullname').focus();
+				});
+
+				$(document).on('blur','#txt_fullname', function(){
+				    var name = $(this).val();
+				    //alert('Make an AJAX call and pass this parameter >> name=' + name);
+				    $('#fullname').text(name);
+				});
 
 
 
 			}
 
 				
+			
 
 
 			function deleteTodoItem(e, item) {
@@ -146,5 +171,6 @@
 
 
 	</script>
+
 
 </html>
