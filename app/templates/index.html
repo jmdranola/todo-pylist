@@ -21,6 +21,10 @@
 			<script src="js/vendor/html5shiv.js"></script>
 			<script src="js/vendor/respond.min.js"></script>
 		<![endif]-->
+
+		<link href="http://html5demos.com/css/html5demos.css" rel="stylesheet">
+
+		<script src="http://html5demos.com/js/h5utils.js"></script>
 	</head>
 
 	<body>
@@ -32,15 +36,17 @@
 		<center>
 			<h1 class="full-block">SIMPLE TO-DO LIST</h1>
 
+
 		</center>
 		<br />
-		  
+		   <section id="editable" contenteditable="true">
 		  <form id="form-todo-list">
 		    <div id="todo-list" class="todo-list">
 		    
 		    </div>
 
 		  </form>
+</section>
 
   		<form id="form-add-todo" class="form-add-todo">
 		    <label for="todo"></label>
@@ -82,12 +88,36 @@
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="/static/js/vendor/video.js"></script>
 	<script src="/static/js/flat-ui.min.js"></script>
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 
+<script>
+var editable = document.getElementById('editable');
 
+addEvent(editable, 'blur', function () {
+  // lame that we're hooking the blur event
+  localStorage.setItem('contenteditable', this.innerHTML);
+  document.designMode = 'off';
+});
+
+addEvent(editable, 'focus', function () {
+  document.designMode = 'on';
+});
+
+addEvent(document.getElementById('clear'), 'click', function () {
+  localStorage.clear();
+  window.location = window.location; // refresh
+});
+
+if (localStorage.getItem('contenteditable')) {
+  editable.innerHTML = localStorage.getItem('contenteditable');
+}
+
+</script>
 	<script type="text/javascript">
-		
-					
+
+		  // single click
+
+
 
 			function addTodoItem() {
 
@@ -100,44 +130,17 @@
 			                         " class='custom-checkbox todo-item-done' data-toggle='checkbox' id='checkbox'"+ 
 			                         " value='" + todoItem + "' /> <span class='icons' style='font-size: 23px'><span class='icon-unchecked'></span><span class='icon-checked'></span></span><span class='todo-text'> " +
 			                         "</span><button class='btn btn-xs btn-danger todo-item-delete'>"+
-			                         "<span class='fui-cross'></span></button><img src='/static/space.png'> <span id='fullname'>"+ 
+			                         "<span class='fui-cross'></span></button><img src='/static/space.png'> <span id='edit'>"+ 
 			                         todoItem +
 			                         "</span> <hr /></label>");
 			 
 
 			 $("#new-todo-item").val("");
 
-
-				$('#fullname').click(function(){
-				    var name = $(this).text();
-				    $(this).html('');
-				    $('<input></input>')
-				        .attr({
-				            'type': 'text',
-				            'name': 'fname',
-				            'id': 'txt_fullname',
-				            'size': '30',
-				            'value': name
-				        })
-				        .appendTo('#fullname');
-				    $('#txt_fullname').focus();
-				   
-				});
-
-				$(document).on('blur','#txt_fullname', function(){
-				    var name = $(this).val();
-				    //alert('Make an AJAX call and pass this parameter >> name=' + name);
-				    $('#fullname').text(name);
-
-				});
-
-
-
 			}
 
 				
-			
-
+	
 
 			function deleteTodoItem(e, item) {
 			  e.preventDefault();
