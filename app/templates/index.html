@@ -103,14 +103,7 @@ addEvent(editable, 'focus', function () {
   document.designMode = 'on';
 });
 
-addEvent(document.getElementById('clear'), 'click', function () {
-  localStorage.clear();
-  window.location = window.location; // refresh
-});
 
-if (localStorage.getItem('contenteditable')) {
-  editable.innerHTML = localStorage.getItem('contenteditable');
-}
 
 </script>
 	<script type="text/javascript">
