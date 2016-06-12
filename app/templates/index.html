@@ -100,7 +100,7 @@
 			                         " class='custom-checkbox todo-item-done' data-toggle='checkbox' id='checkbox'"+ 
 			                         " value='" + todoItem + "' /> <span class='icons' style='font-size: 23px'><span class='icon-unchecked'></span><span class='icon-checked'></span></span><span class='todo-text'> " +
 			                         "</span><button class='btn btn-xs btn-danger todo-item-delete'>"+
-			                         "<span class='fui-cross'></span></button><img src='/static/space.png'> <span class='fullname'>"+ 
+			                         "<span class='fui-cross'></span></button><img src='/static/space.png'> <span id='fullname'>"+ 
 			                         todoItem +
 			                         "</span> <hr /></label>");
 			 
@@ -108,7 +108,7 @@
 			 $("#new-todo-item").val("");
 
 
-				$('.fullname').click(function(){
+				$('#fullname').click(function(){
 				    var name = $(this).text();
 				    $(this).html('');
 				    $('<input></input>')
@@ -121,12 +121,14 @@
 				        })
 				        .appendTo('#fullname');
 				    $('#txt_fullname').focus();
+				   
 				});
 
 				$(document).on('blur','#txt_fullname', function(){
 				    var name = $(this).val();
 				    //alert('Make an AJAX call and pass this parameter >> name=' + name);
 				    $('#fullname').text(name);
+
 				});
 
 
