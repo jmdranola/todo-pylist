@@ -1,17 +1,20 @@
 # todo-pylist
-A simple to-do list using python and flask.
 
-Python
-Flask with Virtualenv
-JQuery
-Flat UI - Free User Interface Kit by Designmodo
-ContentEditable by html5demos
-Heroku - For the Live demo
 
-Check this live demo:
+<b>A simple to-do list using python and flask.</b>
+
+We use:
+Python<br>
+Flask with Virtualenv<br>
+JQuery<br>
+Flat UI - Free User Interface Kit by Designmodo<br>
+ContentEditable by html5demos<br>
+Heroku - For the Live demo<br>
+
+<br>Check this live demo:
 http://todo-pylist.herokuapp.com/
 
-Simple Instruction at:
+<br>Simple Instruction at:
 http://todo-pylist.herokuapp.com/readme/
 
 
