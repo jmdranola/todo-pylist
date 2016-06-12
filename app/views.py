@@ -7,8 +7,9 @@ from app import app
 @app.route('/')
 @app.route('/index')
 def index(): 
-    return "Hello, World!!"
-
-@app.route('/templates/')
-def templates():
     return render_template("index.html")
+
+
+@app.route('/readme/')
+def readme():
+    return render_template("readme.html")
