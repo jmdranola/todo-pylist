@@ -29,7 +29,9 @@
 
 		<center>
 			<h1 class="full-block">SIMPLE TO-DO LIST</h1>
-
+			<label class="text_label">Click The Pencil Icon to Edit Me</label><div class="edit"></div>
+			<input type="text" class="for-edit" value="Click The Pencil Icon to Edit Me" />
+			<div class="clear"></div>
 		</center>
 		<br />
 		  
@@ -81,7 +83,8 @@
 	<script src="/static/js/vendor/video.js"></script>
 	<script src="/static/js/flat-ui.min.js"></script>
 
-
+	<script type="text/javascript" src="/static/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="/static/easy-editable-text.js"></script>
 
 	<script type="text/javascript">
 
@@ -99,7 +102,7 @@
 			                         " class='custom-checkbox todo-item-done' data-toggle='checkbox' id='checkbox'"+ 
 			                         " value='" + todoItem + "' /> <span class='icons' style='font-size: 23px'><span class='icon-unchecked'></span><span class='icon-checked'></span></span><span class='todo-text'> " +
 			                         "</span><button class='btn btn-xs btn-danger todo-item-delete'>"+
-			                         "<span class='fui-cross'></span></button><img src='/static/space.png'>"+ 
+			                         "<span class='fui-cross'></span></button><button id='editable'>E</button><img src='/static/space.png'>"+ 
 			                         todoItem +
 			                         " <hr /></label>");
 			 

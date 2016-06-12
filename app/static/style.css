@@ -3,6 +3,7 @@
 }
 .strike {
 		  text-decoration: line-through;
+
 		}
 
 .full-block{
@@ -13,3 +14,4 @@
 	height: 100%;
 	padding: 5% auto;
 }
+
